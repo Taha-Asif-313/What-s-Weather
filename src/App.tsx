@@ -9,7 +9,6 @@ import Loading from "./components/Loading";
 const App: React.FC = () => {
   const [response, setresponse] = useState<WeatherApiResponse | null>(null);
   const [searchCity, setsearchCity] = useState<string>("");
-
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
@@ -19,7 +18,6 @@ const App: React.FC = () => {
       setLoading(true);
       setError(""); // Reset previous errors
 
-      // Fetch current weather data for the city
       const res = await fetch(
         `https://api.weatherapi.com/v1/current.json?key=156ba8419fcb4be388774417240708&q=${searchCity}`
       );
@@ -31,7 +29,7 @@ const App: React.FC = () => {
         return;
       }
 
-      const data = await res.json(); // Parse JSON data
+      const data: WeatherApiResponse = await res.json(); // Parse JSON data
 
       setresponse(data); // Store the data in state
       console.log(data);
@@ -51,31 +49,30 @@ const App: React.FC = () => {
     );
 
   return (
-    <>
-      <div className="grid relative h-screen max-lg:h-screen w-full place-items-center  md:py-10 md:px-10 bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-        <section className="grid h-full w-full md:rounded-xl bg-white bg-gradient-to-tl from-[#a32300] via-[#a35400] to-[#bbbf37] p-6">
-          <div className="flex h-full flex-col gap-y-5 rounded-2xl text-violet-100">
-            <SearchInput
-              searchCity={searchCity}
-              setsearchCity={setsearchCity}
-              fetchWeather={fetchWeather}
+    <div className="grid relative h-screen max-lg:h-screen w-full place-items-center  md:py-10 md:px-10 bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+      <section className="grid h-full w-full md:rounded-xl bg-white bg-gradient-to-tl from-[#a32300] via-[#a35400] to-[#bbbf37] p-6">
+        <div className="flex h-full flex-col gap-y-5 rounded-2xl text-violet-100">
+          <SearchInput
+            searchCity={searchCity}
+            setsearchCity={setsearchCity}
+            fetchWeather={fetchWeather}
+          />
+          {response != null ? (
+            <WeatherCard
+              name={response.location.name}
+              description={response.current.condition.text}
+              icon={response.current.condition.icon}
+              humidity={response.current.humidity}
+              temp={response.current.temp_c}
+              cloud={response.current.cloud}
+              date_time={response.location.localtime}
             />
-            {response && (
-              <WeatherCard
-                name={response.location.name}
-                description={response.current.condition.text}
-                icon={response.current.condition.icon}
-                humidity={response.current.humidity}
-                temp={response.current.temp_c}
-                cloud={response.current.cloud}
-                date_time={response.location.localtime}
-              />
-            )}
-            {!response && <Home />}
-          </div>
-        </section>
-      </div>
-    </>
+          ) : (
+            <Home />
+          )}
+        </div>
+      </section>
+    </div>
   );
 };
 

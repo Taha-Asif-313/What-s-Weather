@@ -6,7 +6,6 @@
     icon: string;
     humidity: number;
     cloud: number;
-    icon:string;
     date_time:string;
   }
 
