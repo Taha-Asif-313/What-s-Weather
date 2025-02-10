@@ -39,6 +39,7 @@ const CheckWeather: React.FC = () => {
       setLoading(false); // Always stop loading
     }
   };
+  
   if (loading)
     return (
       <div className="absolute top-0 right-0 w-full h-screen flex items-center justify-center">
