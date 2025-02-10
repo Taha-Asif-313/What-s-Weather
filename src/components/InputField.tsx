@@ -14,7 +14,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   };
 
   return (
-    <div className="relative flex items-center gap-x-2 ">
+    <div className="relative w-full flex items-center gap-x-2 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -25,21 +25,21 @@ const SearchInput: React.FC<SearchInputProps> = ({
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="lucide lucide-search absolute left-4 h-5 w-5 text-white"
+        className="lucide lucide-search absolute left-4 h-5 w-5"
       >
         <circle cx="11" cy="11" r="8" />
         <path d="m21 21-4.3-4.3" />
       </svg>
 
       <input
-        className="w-full shadow rounded-full bg-black  placeholder:text-white py-3 pl-11 pr-4 text-white outline-none focus:ring-0"
+        className="w-full shadow rounded-full border-2 border-black py-2 pl-11 pr-4 outline-none focus:ring-0"
         placeholder="Search"
         value={searchCity} // Binding state to input value
         onChange={handleChange} // Updating state on change
       />
 
       <button
-        className="grid aspect-square h-12 w-12 place-items-center rounded-full bg-black  outline-none transition-colors duration-200 ease-in-out hover:bg-yellow-500"
+        className="grid aspect-square h-10 w-10 place-items-center rounded-full border-2 border-black outline-none transition-colors duration-200 ease-in-out hover:bg-yellow-500"
         onClick={fetchWeather} // Trigger search on button click
       >
         <svg

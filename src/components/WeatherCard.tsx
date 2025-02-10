@@ -1,25 +1,25 @@
 import { WeatherData } from "../types/global";
-const WeatherCard = ({name,description,icon,temp,humidity,cloud,date_time}:WeatherData) => {
-  const [date, time] = date_time.split(" ");
+const WeatherCard = ({
+  name,
+  description,
+  icon,
+  temp,
+  humidity,
+  cloud,
+}: WeatherData) => {
   return (
     <>
-      <header className="date space-y-2 text-xl font-medium tracking-tighter">
-        <h1>{date}</h1>
-        <p className="text-5xl font-extrabold">
-          <time className="time">{time}</time>
-        </p>
-      </header>
-      <main className="relative flex-1">
+      <main className="relative w-full lg:mt-10">
         <div id="weather" className="weather mx-auto h-20 w-20">
-         <img className="h-full w-full object-cover" src={icon} alt="" /> 
+          <img className="h-full w-full object-cover" src={icon} alt="" />
         </div>
         <div className="text-center space-y-4 pt-5">
           <h2 className="font-bold text-3xl">{name}</h2>
-          <h3 className="font-extrabold text-5xl">{temp}°C</h3>
+          <h3 className="font-extrabold text-5xl">{temp}<span className="">°C</span></h3>
           <p>{description}</p>
         </div>
-        <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 border-t border-yellow-600 pt-3 text-yellow-200">
-          <div className="wave flex items-center justify-center gap-2">
+        <div className="w-full grid grid-cols-2 pt-3 text-black">
+          <div className="wave flex items-center justify-start gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -41,7 +41,7 @@ const WeatherCard = ({name,description,icon,temp,humidity,cloud,date_time}:Weath
               <p className="text-sm font-medium">Humidity</p>
             </div>
           </div>
-          <div className="wave flex items-center justify-center gap-2">
+          <div className="wave flex items-center justify-end gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
