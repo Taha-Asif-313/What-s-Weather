@@ -14,7 +14,7 @@ The **Current Weather Website** provides real-time weather updates based on user
 ## Technologies Used
 
 - **Frontend**: React,Typescript
-- **API**: Weatherapi API (https://www.weatherapi.com,or you can change other platform with some changes)
+- **API**: Weatherapi API (https://www.weatherapi.com , or you can change other platform with some changes)
 - **Responsive Design**: Ensures usability on desktops, tablets, and mobile devices.
 
 ## Setup and Installation
