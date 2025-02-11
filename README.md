@@ -10,7 +10,6 @@ The **Current Weather Website** provides real-time weather updates based on user
 - **Location-Based Weather**: Automatically detects user’s location to provide localized weather.
 - **Weather Conditions**: Shows essential details like temperature, humidity, wind speed, and general weather conditions.
 - **User-Friendly Interface**: Easy-to-navigate interface with a clean layout and interactive features.
-- **Forecast**: In some cases, a 7-day weather forecast is also available.
 
 ## Technologies Used
 
